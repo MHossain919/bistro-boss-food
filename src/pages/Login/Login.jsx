@@ -11,7 +11,7 @@ import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
 
 const Login = () => {
-  const [disable, setDisable] = useState(true);
+  const [setDisable] = useState(true);
 
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -116,9 +116,10 @@ const Login = () => {
                   Validate
                 </button> */}
               </div>
+              make btn disabled for chaptca
               <div className="form-control mt-6">
                 <input
-                  disabled={disable}
+                  disabled={false}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
