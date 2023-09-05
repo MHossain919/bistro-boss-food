@@ -9,6 +9,7 @@ import PrivateRoute from "./PrivateRoute";
 import Sectet from "../pages/Shared/Sectet/Sectet";
 import Dashboard from "../Layout/Dashboard";
 import Mycart from "../pages/Dashboard/Mycart";
+import AllUsers from "../pages/Dashboard/AllUsers/AllUsers";
 
 export const router = createBrowserRouter([
   {
@@ -47,11 +48,19 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "mycart",
         element: <Mycart></Mycart>,
+      },
+      {
+        path: "allusers",
+        element: <AllUsers></AllUsers>,
       },
     ],
   },

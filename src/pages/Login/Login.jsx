@@ -9,9 +9,10 @@ import { AuthContext } from "../../providers/AuthProvider";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import Swal from "sweetalert2";
+import SocialLogin from "../Shared/SocialLogin/SocialLogin";
 
 const Login = () => {
-  const [setDisable] = useState(true);
+  const [disabled, setDisable] = useState(true);
 
   const { signIn } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -119,7 +120,7 @@ const Login = () => {
               make btn disabled for chaptca
               <div className="form-control mt-6">
                 <input
-                  disabled={false}
+                  disabled={disabled}
                   className="btn btn-primary"
                   type="submit"
                   value="Login"
@@ -131,6 +132,7 @@ const Login = () => {
                 New Here? <Link to="/signup">SignUp</Link>
               </small>
             </p>
+            <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
